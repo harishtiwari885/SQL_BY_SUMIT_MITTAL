@@ -1,0 +1,31 @@
+🧠 Level 2 Questions:
+Show total price per category, but only for categories having total price greater than 100.
+
+Show average price per category and order them by average price in descending order.
+
+Show category with the highest total price. (Hint: Use LIMIT 1)
+
+Show number of products in each category, but only for those categories where there are at least 2 products.
+
+Show maximum and minimum price in each category in the same query.
+
+Show all categories where the average product price is below 200, and sort the result alphabetically by category.
+
+Show the category with the minimum average price. (Hint: Use ORDER BY + LIMIT)
+
+Show categories having more than 1 product and average price more than 20.
+
+Count total number of categories in the table. (Use GROUP BY + COUNT outside or inside subquery)
+
+Show the category, total price, and number of products, ordered by number of products descending.
+====================================================================================================
+Questions:
+Show the category that has the second highest total price.
+
+Find all products whose price is greater than the average price of their category.
+
+Show categories where the max price is more than double the min price.
+
+For each category, show: category name, total price, and a tag column showing 'High' if total > 200 else 'Low'.
+
+Show only those categories where the total price is greater than the average of total prices of all categories.

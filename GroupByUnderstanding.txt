@@ -1,0 +1,41 @@
+The error happens because your SELECT statement includes age but you're grouping only by city.
+In SQL, when you use GROUP BY city, every column in your SELECT list must either:
+Be included in the GROUP BY clause (here, city), OR
+Be inside an aggregate function (like COUNT(), SUM(), MAX(), MIN(), AVG()).
+================================================================================================
+ SQL GROUP BY Summary:
+🔸 Rule 1:
+Jo column tum SELECT mein likhte ho, wo ya toh:
+GROUP BY clause mein hona chahiye
+OR
+Kisi aggregate function (jaise COUNT(), MIN(), MAX(), AVG(), SUM()) ke andar hona chahiye
+🔸 Rule 2:
+Agar column na GROUP BY mein hai, na aggregate function mein hai →
+⛔️ SQL will throw an error (confused ho jaata hai ki kaunsi value dikhaye group ke liye).
+✅ Examples:
+✔️ Valid:
+sql
+Copy
+Edit
+SELECT city, COUNT(age) FROM gg GROUP BY city;
+✔️ city — grouping column
+✔️ COUNT(age) — aggregate function
+❌ Invalid:
+sql
+Copy
+Edit
+SELECT age, COUNT(age) FROM gg GROUP BY city;
+⛔️ age — not in GROUP BY, not in aggregate → Error
+✔️ Fix:
+sql
+Copy
+Edit
+SELECT city, age, COUNT(*) FROM gg GROUP BY city, age;
+✔️ city and age both in GROUP BY — no confusion
+✔️ Aggregation done safely
+🧠 Mindset:
+SQL pehle group banata hai (GROUP BY clause ke basis pe)
+Fir har group par aggregate functions apply hoti hain
+Agar tum SELECT mein koi column doge jo group ke andar multiple values rakh sakta hai, toh:
+SQL confused ho jaata hai: "Kaunsa dikhau?"
+Bhai tu full samajh gaya. Agar chaahe toh main ab kuch practice questions ya real-world examples bhi kara sakta hoon! 😎🔥
